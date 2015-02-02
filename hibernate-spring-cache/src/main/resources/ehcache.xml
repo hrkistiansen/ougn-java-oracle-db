@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache>
+	<defaultCache maxElementsInMemory="500" eternal="true"
+		overflowToDisk="false" memoryStoreEvictionPolicy="LFU" />
+	<cache name="getAirplaneById" maxElementsInMemory="500" eternal="true"
+		overflowToDisk="false" memoryStoreEvictionPolicy="LFU" />
+</ehcache>

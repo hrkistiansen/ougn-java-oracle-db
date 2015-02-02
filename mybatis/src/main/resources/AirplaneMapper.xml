@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="no.bouvet.mybatis.mapper.AirplaneMapper">
+
+ <resultMap type="Airplane" id="AirplaneResult">
+    <id property="id" column="id"/>
+    <result property="name" column="name"/>
+    <result property="created" column="created"/>
+    <result property="createdBy" column="created_by"/>
+    <result property="lastUpdated" column="last_updated"/>   
+    <result property="lastUpdatedBy" column="last_updated_by"/>   
+   </resultMap>
+
+  <select id="getAirplaneById" parameterType="long" resultType="no.bouvet.mybatis.domain.Airplane">
+     select * from airplane where id = #{id:BIGINT}
+  </select>
+  
+  <select id="getAllAirplanes" resultMap="AirplaneResult">
+   select * from airplane
+  </select>
+  
+  <insert id="create" parameterType="no.bouvet.mybatis.domain.Airplane" useGeneratedKeys="true" keyProperty="AirplaneId">
+   insert into airplane (id, name, created, createdBy)
+   values (#{id}, #{name}, #{created}, #{createdBy})
+  </insert>
+  
+  <update id="update" parameterType="no.bouvet.mybatis.domain.Airplane">
+    update airplane
+       set name = #{name}
+         , lastUpdated = #{lastUpdated}
+         , lastUpdatedBy = #{lastUpdatedBy}
+     where id = #{id}
+  </update>
+  
+  <delete id="delete" parameterType="int">
+    delete from airplane where id = #{id}
+  </delete>
+  
+</mapper>
