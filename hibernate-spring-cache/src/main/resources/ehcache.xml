@@ -2,6 +2,6 @@
 <ehcache>
 	<defaultCache maxElementsInMemory="500" eternal="true"
 		overflowToDisk="false" memoryStoreEvictionPolicy="LFU" />
-	<cache name="getAirplaneById" maxElementsInMemory="500" eternal="true"
+	<cache name="getEmployeeById" maxElementsInMemory="500" eternal="true"
 		overflowToDisk="false" memoryStoreEvictionPolicy="LFU" />
 </ehcache>

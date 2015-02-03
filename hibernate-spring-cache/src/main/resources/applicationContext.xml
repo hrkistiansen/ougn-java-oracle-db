@@ -22,7 +22,7 @@
 		</property>
 		<property name="jpaProperties">
 			<props>
-				<prop key="hibernate.hbm2ddl.auto">create</prop>
+				<prop key="hibernate.hbm2ddl.auto"></prop>
 				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.format_sql">false</prop>
@@ -35,8 +35,8 @@
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
 		<property name="url" value="jdbc:oracle:thin:@localhost:1521:XE" />
-		<property name="username" value="hibtest" />
-		<property name="password" value="hibtest" />
+		<property name="username" value="hr" />
+		<property name="password" value="hr" />
 	</bean>
 
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
@@ -45,11 +45,9 @@
 
 	<tx:annotation-driven proxy-target-class="true" />
 
-	<bean id="airplaneDao" class="no.bouvet.orm.dao.AirplaneDaoImpl" />
-
 	<cache:annotation-driven />
 
-	<context:component-scan base-package="no.bouvet.orm.domain" />
+	<context:component-scan base-package="no.bouvet.orm" />
 	
 	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
 		<property name="cacheManager" ref="ehcache" />
