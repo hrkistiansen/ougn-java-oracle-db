@@ -8,27 +8,27 @@
 		<!-- Database connection settings -->
 		<property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
 		<property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>
-		<property name="hibernate.connection.username">hibtest</property>
-		<property name="hibernate.connection.password">hibtest</property>
+		<property name="hibernate.connection.username">hr</property>
+		<property name="hibernate.connection.password">hr</property>
 		
 		<!-- Oracle specific -->
 		<property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
-		<property name="hibernate.default_schema">HIBTEST</property>
+		<property name="hibernate.default_schema">HR</property>
 
 		<!-- org.hibernate.HibernateException: No CurrentSessionContext configured! -->
 		<property name="hibernate.current_session_context_class">thread</property>
 		
 		<!-- Create and drop database objects -->
-		<property name="hibernate.hbm2ddl.auto">create</property>
+		<property name="hibernate.hbm2ddl.auto"></property>
 		
 		<!-- Show SQL -->
 		<property name="hibernate.show_sql">true</property>
 
 		<!-- Disable connection pooling -->
 		<property name="hibernate.connection.pool_size">1</property>
-
+		
 		<!-- Mapping domain objects -->
-		<mapping class="no.bouvet.orm.domain.Airplane" />
+		<mapping class="no.bouvet.orm.domain.Employee" />
 	</session-factory>
 
 </hibernate-configuration>
