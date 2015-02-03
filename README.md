@@ -21,12 +21,10 @@ The Oracle JDBC-driver is not part of a public repository, and must be installed
 - Get the sample code from git `git clone https://github.com/hrkistiansen/ougn-java-oracle-db.git`
 - Go into the project you are interrested in `cd ougn-java-oracle-db/jdbc`
 - Prepare the project for opening in Eclipse `gradle eclipse`
-- Create the database user and sample objects
+- Unlock the HR-database user and sample objects
 --`sqlplus "/ as sysdba"`
---`@ougn-java-oracle-db/ougn-java-oracle-db/jdbc/main/resources/sql/create_db_user.sql`
-
-
-
+--`alter user hr account unlock;`
+--`alter user hr identified by hr;`
 
 
 ##The Projects

@@ -51,7 +51,7 @@ public class EmployeeDao {
     }
 
     public void update(Employee employee) {
-        String updateStatement = "update employees set first_name = ?, last_name = ?, email = ?, phone_number = ?, hire_date = ?, job_id = ?, salary = ?, commission_pct = ?, manager_id = ?, department_id = ?where employee_id = ?";;
+        String updateStatement = "update employees set first_name = ?, last_name = ?, email = ?, phone_number = ?, hire_date = ?, job_id = ?, salary = ?, commission_pct = ?, manager_id = ?, department_id = ? where employee_id = ?";
         try {
             connection = dataSource.getConnection();
             statement = connection.prepareStatement(updateStatement);
