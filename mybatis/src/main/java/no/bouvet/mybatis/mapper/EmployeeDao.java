@@ -4,7 +4,7 @@ import java.util.List;
 
 import no.bouvet.mybatis.domain.Employee;
 
-public interface EmployeeMapper {
+public interface EmployeeDao {
 
     void create(Employee employee);
 

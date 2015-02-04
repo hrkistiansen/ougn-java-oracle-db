@@ -2,21 +2,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-    <mapper namespace="no.bouvet.mybatis.mapper.EmployeeMapper">
+    <mapper namespace="no.bouvet.mybatis.mapper.EmployeeDao">
 
-	<resultMap id="EmployeeResult" type="no.bouvet.mybatis.domain.Employee" >
+	<resultMap id="EmployeeMap" type="Employee" >
 		<id property="employeeId" column="EMPLOYEE_ID" />
 	</resultMap>
 
-	<select id="getById" resultType="no.bouvet.mybatis.domain.Employee" useCache="false" resultMap="EmployeeResult">
+	<select id="getById" resultType="Employee" useCache="false">
 		select * from employees where employee_id = #{employeeId}
 	</select>
 
-	<select id="getAll" resultMap="EmployeeResult">
+	<select id="getAll" resultMap="EmployeeMap">
 		select * from employees
 	</select>
 
-	<insert id="create" parameterType="no.bouvet.mybatis.domain.Employee"
+	<insert id="create" parameterType="Employee"
 		useGeneratedKeys="true" keyProperty="EmployeeId">
 		insert into employees
 		   (
@@ -47,7 +47,7 @@
 		   )
    	</insert>
 
-	<update id="update" parameterType="no.bouvet.mybatis.domain.Employee">
+	<update id="update" parameterType="Employee">
 		update employees 
 		set first_name     = #{firstName}, 
 		    last_name      = #{lastName}, 
@@ -62,7 +62,7 @@
 		where employee_id = #{employeeId}
 	</update>
 
-	<delete id="delete" parameterType="no.bouvet.mybatis.domain.Employee">
+	<delete id="delete" parameterType="Employee">
 		delete from employees where employee_id = #{employeeId}
 	</delete>
 
