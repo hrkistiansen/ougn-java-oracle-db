@@ -14,7 +14,6 @@
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
 		</property>
-		<property name="persistenceUnitName" value="myPersistenceUnit"/>
 		<property name="jpaProperties">
 			<props>
 				<prop key="hibernate.hbm2ddl.auto"></prop>

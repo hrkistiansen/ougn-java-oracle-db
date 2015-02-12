@@ -13,7 +13,5 @@
 		<property name="password" value="hr" />
 	</bean>
 
-	<bean id="employeeDao" class="no.bouvet.jdbc.dao.EmployeeDao">
-		<property name="dataSource" ref="dataSource" />
-	</bean>
+	<bean id="employeeDao" class="no.bouvet.jdbc.dao.EmployeeDao" />
 </beans>

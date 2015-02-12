@@ -98,7 +98,6 @@ public class EmployeeDaoTest {
 
 		// Then
 		assertEquals(NO_EMPS, subject.getAll().size());
-		;
 	}
 
 	public void deleteEmployeeBeforeTest() {
