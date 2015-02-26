@@ -10,12 +10,10 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 import no.bouvet.orm.domain.Employee;
 
-import org.hibernate.SQLQuery;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -103,13 +101,12 @@ public class EmployeeDaoTest {
     }
 
     public void deleteEmployeeBeforeTest() {
-        Session session = (Session) entityManager.getDelegate();
-        Transaction tx = session.beginTransaction();
-        SQLQuery q = session.createSQLQuery("delete from job_history where employee_id = " + EMP_ID);
+        entityManager.getTransaction().begin();
+        Query q = entityManager.createNativeQuery("delete from job_history where employee_id = " + EMP_ID);
         q.executeUpdate();
-        SQLQuery q2 = session.createSQLQuery("delete from employees where employee_id = " + EMP_ID);
+        Query q2 = entityManager.createNativeQuery("delete from employees where employee_id = " + EMP_ID);
         q2.executeUpdate();
-        tx.commit();
+        entityManager.getTransaction().commit();
     }
 
     private Employee createTestEmployee() {

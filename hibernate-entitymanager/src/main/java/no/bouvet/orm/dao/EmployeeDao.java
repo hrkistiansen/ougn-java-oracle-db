@@ -3,10 +3,9 @@ package no.bouvet.orm.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.criteria.CriteriaQuery;
 
 import no.bouvet.orm.domain.Employee;
-
-import org.hibernate.Session;
 
 public class EmployeeDao {
 	private EntityManager entityManager;
@@ -35,8 +34,9 @@ public class EmployeeDao {
 
 	@SuppressWarnings("unchecked")
 	public List<Employee> getAll() {
-		Session session = (Session) entityManager.getDelegate();
-		return session.createCriteria(Employee.class).list();
+        CriteriaQuery cq = entityManager.getCriteriaBuilder().createQuery();
+        cq.select(cq.from(Employee.class));
+        return entityManager.createQuery(cq).getResultList();
 	}
 
 	public void setEntityManager(EntityManager entityManager) {
