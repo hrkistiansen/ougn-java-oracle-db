@@ -1,43 +1,33 @@
 package no.bouvet.orm.dao;
 
+import java.util.List;
 
+import com.avaje.ebean.Ebean;
+
+import no.bouvet.orm.domain.Employee;
 
 public class EmployeeDao {
 
-//	public void create(Employee employee) {
-//
-//	}
-//
-//	public void update(Employee employee) {
-//		Session session = sessionFactory.getCurrentSession();
-//		Transaction tx = session.beginTransaction();
-//		session.update(employee);
-//		tx.commit();
-//	}
-//
-//	public void delete(Employee employee) {
-//		Session session = sessionFactory.getCurrentSession();
-//		Transaction tx = session.beginTransaction();
-//		session.delete(employee);
-//		tx.commit();
-//	}
-//
-//	public Employee getById(Long employeeId) {
-//		Session session = sessionFactory.getCurrentSession();
-//		Transaction tx = session.beginTransaction();
-//		Employee employee = (Employee) session.get(Employee.class, employeeId);
-//		tx.commit();
-//		return employee;
-//	}
-//
-//	public List<Employee> getAll() {
-//		Session session = sessionFactory.getCurrentSession();
-//		Transaction tx = session.beginTransaction();
-//		List<Employee> employees = session.createQuery("FROM Employee").list();
-//		tx.commit();
-//		return employees;
-//	}
-//
+	public void create(Employee employee) {
+        employee.save();
+	}
+
+	public void update(Employee employee) {
+		employee.save();
+	}
+
+	public void delete(Employee employee) {
+		employee.delete();
+	}
+
+	public Employee getById(Long employeeId) {
+		return Ebean.find(Employee.class, employeeId);
+	}
+
+	public List<Employee> getAll() {
+		return Ebean.find(Employee.class).findList();
+	}
+
 //	public void setSessionFactory(SessionFactory sessionFactory) {
 //		this.sessionFactory = sessionFactory;
 //	}

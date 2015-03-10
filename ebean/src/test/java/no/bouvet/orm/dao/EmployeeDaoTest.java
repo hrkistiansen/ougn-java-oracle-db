@@ -7,6 +7,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import javax.security.auth.Subject;
+
 import no.bouvet.orm.domain.Employee;
 
 import org.avaje.agentloader.AgentLoader;
@@ -20,11 +22,11 @@ public class EmployeeDaoTest {
     private static final int NO_EMPS = 107;
     private static final Long EMP_ID = 999L;
 
-	private EmployeeDao subject;
+	private static EmployeeDao subject;
 
 	@BeforeClass
 	public static void setUp() {
-	    AgentLoader.loadAgentFromClasspath("avaje-ebeanorm-agent","debug=2;packages=no.bouvet.orm.domain.**");
+	    subject = new EmployeeDao();
 	}
 
 	@Before
@@ -32,25 +34,13 @@ public class EmployeeDaoTest {
 	    Ebean.createSqlUpdate("delete from employees where employee_id = " + EMP_ID).execute();
 	}
 
-//	@Test
-//	public void testDatasource() {
-//        String sql = "select count(*) as count from dual";
-//        SqlRow row =
-//            Ebean.createSqlQuery(sql)
-//            .findUnique();
-//
-//        Integer i = row.getInteger("count");
-//
-//        System.out.println("Got "+i+"  - DataSource good.");
-//	}
-//
 	@Test
 	public void createEmployee() {
 		// Given
 		Employee employee = createTestEmployee();
 
 		// When
-        employee.save();
+		subject.create(employee);
 
 		// Then
         List<Employee> employees = Ebean.find(Employee.class).findList();
@@ -62,7 +52,7 @@ public class EmployeeDaoTest {
 		// Given
 
 		// When
-	    List<Employee> result = Ebean.find(Employee.class).findList();
+	    List<Employee> result = subject.getAll();
 
 		// Then
 		assertEquals(NO_EMPS, result.size());
@@ -75,7 +65,7 @@ public class EmployeeDaoTest {
 		employee.save();
 
 		// When
-		Employee result = Ebean.find(Employee.class, EMP_ID);
+		Employee result = subject.getById(EMP_ID);
 
 		// Then
 		assertEquals(employee.getFirstName(), result.getFirstName());
@@ -90,7 +80,7 @@ public class EmployeeDaoTest {
 		employee.setFirstName("Oppdatert navn");
 
 		// When
-		employee.save();
+		subject.update(employee);
 
 		// Then
 		Employee fetchedEmployeeAfterUpdate = Ebean.find(Employee.class, EMP_ID);
@@ -104,7 +94,7 @@ public class EmployeeDaoTest {
 		employee.save();
 
 		// When
-		employee.delete();
+		subject.delete(employee);
 
 		// Then
 		assertEquals(NO_EMPS, Ebean.find(Employee.class).findList().size());

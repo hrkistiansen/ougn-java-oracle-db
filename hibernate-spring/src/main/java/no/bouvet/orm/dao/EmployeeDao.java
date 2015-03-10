@@ -25,7 +25,6 @@ public class EmployeeDao {
 	}
 
 	public void delete(Employee employee) {
-		// Merge only necessary for simplistic test case
 		entityManager.remove(employee);
 	}
 
