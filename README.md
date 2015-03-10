@@ -1,4 +1,4 @@
-#Talking Databasish to Oracle
+#Talking Databasish in Java
 
 This is a repository with sample projects using different techniques to communicate between Java and the Oracle database.
 
