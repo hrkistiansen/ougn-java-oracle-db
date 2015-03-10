@@ -19,8 +19,6 @@ public class EmployeeDao {
     private ResultSet resultSet = null;
 
     public void create(Employee employee) {
-        // String insertStatement =
-        // "insert into employees ( employee_id, first_name, last_name, email, phone_number, hire_date, job_id, salary, commission_pct, manager_id, department_id ) values ( :employeeId, :firstName, :lastName, :email, :phoneNumber, :hireDate, :jobId, :salary, :commissionPct, :managerId, :departmentId);";
         String insertStatement = "insert into employees ( employee_id, first_name, last_name, email, phone_number, hire_date, job_id, salary, commission_pct, manager_id, department_id ) values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
