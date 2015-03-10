@@ -1,9 +1,8 @@
 package no.bouvet.orm.repository;
 
-import org.springframework.data.repository.CrudRepository;
-
-import no.bouvet.orm.domain.Airplane;
 import no.bouvet.orm.domain.Employee;
+
+import org.springframework.data.repository.CrudRepository;
 
 public interface EmployeeRepository extends CrudRepository<Employee, Long>{
 
