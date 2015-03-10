@@ -3,7 +3,8 @@ package no.bouvet.orm.repository;
 import org.springframework.data.repository.CrudRepository;
 
 import no.bouvet.orm.domain.Airplane;
+import no.bouvet.orm.domain.Employee;
 
-public interface AirplaneRepository extends CrudRepository<Airplane, Long>{
+public interface EmployeeRepository extends CrudRepository<Employee, Long>{
 
 }

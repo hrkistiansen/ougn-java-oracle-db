@@ -4,7 +4,7 @@
              version="2.0">
 
     <persistence-unit name="no.bouvet.orm">
-        <class>no.bouvet.orm.domain.Airplane</class>
+        <class>no.bouvet.orm.domain.Employee</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.driver.OracleDriver" />
