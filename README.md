@@ -41,11 +41,11 @@ Uses Spring JDBC to ease the code. Improves on the plain JDBC project.
 
 ###eclipselink
 
-Uses plain eclipselink
+Uses plain eclipselink.
 
 ###hibernate
 
-Uses plain Hibernate
+Uses plain Hibernate.
 
 ###hibernate-entitymanager
 
@@ -53,13 +53,25 @@ Uses Hibernate with an entity manager.
 
 ###hibernate-spring
 
-Uses Hibernate with Spring
+Uses Hibernate with Spring.
+
+###hibernate-spring-cache
+
+Uses Hibernate with Spring and EHCache.
+
+###eclipselink-entitymanager
+
+Uses EclipseLink with an entity manager.
+
+###spring-data-jpa
+
+Uses Spring Data JPA.
 
 ###mybatis
 
-Uses MyBatis 
+Uses MyBatis.
 
 ###ebean
 
-Uses Ebean
+Uses Ebean.
 
